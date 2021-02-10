@@ -1,16 +1,12 @@
 package encryptdecrypt;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Main {
-    private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static String encryptedMessage;
     private static String decryptedMessage;
     private static final Scanner sc = new Scanner(System.in);
@@ -69,19 +65,19 @@ public class Main {
         }
     }
 
-    private static void setConfiguration(){
-        if(hashMap.containsKey("-mode"))
+    private static void setConfiguration() {
+        if (hashMap.containsKey("-mode"))
             mode = hashMap.get("-mode");
-        if(hashMap.containsKey("-key"))
+        if (hashMap.containsKey("-key"))
             key = Integer.parseInt(hashMap.get("-key"));
-        if(hashMap.containsKey("-data"))
+        if (hashMap.containsKey("-data"))
             data = hashMap.get("-data");
     }
 
     public static void main(String[] args) {
         hashMap = new HashMap<>();
         for (int i = 0; i < args.length; i += 2) {
-            hashMap.put(args[i],args[i+1]);
+            hashMap.put(args[i], args[i + 1]);
         }
         setConfiguration();
         mainMenu(mode);
